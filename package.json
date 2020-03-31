@@ -1,0 +1,30 @@
+{
+  "name": "hillel-home-work",
+  "version": "1.0.0",
+  "description": "Make your code great again",
+  "main": "",
+  "scripts": {
+    "lint": "eslint ./src/*.js",
+    "test": "jest"
+  },
+  "author": "Koterniak Serghii",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "src/*.js": [
+      "node_modules/.bin/eslint --max-warnings=0",
+      "git add"
+    ]
+  }
+}
